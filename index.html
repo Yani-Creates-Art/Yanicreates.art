@@ -9,12 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@300;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0b0c0e;
-            --surface-color: #121418;
-            --border-color: #2d3139;
-            --text-main: #e2e8f0;
-            --text-muted: #8a94a6;
-            --accent-white: #ffffff;
+            --bg-color: #7BD14D;
+            --surface-color: #ffffff;
+            --border-color: #0b0c0e;
+            --text-main: #0b0c0e;
+            --text-muted: #2f382c;
+            --accent-dark: #0b0c0e;
         }
 
         * {
@@ -46,11 +46,10 @@
         /* Header Navbar */
         header {
             border-bottom: 1px solid var(--border-color);
-            background-color: rgba(11, 12, 14, 0.95);
+            background-color: #0b0c0e;
             position: sticky;
             top: 0;
             z-index: 100;
-            backdrop-filter: blur(8px);
         }
 
         .nav-wrapper {
@@ -61,6 +60,7 @@
         }
 
         .brand {
+            color: #ffffff;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -70,16 +70,16 @@
         .nav-link {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.85rem;
-            color: var(--text-muted);
+            color: #8a94a6;
             text-decoration: none;
-            border: 1px solid var(--border-color);
+            border: 1px solid #2d3139;
             padding: 6px 12px;
             transition: all 0.2s ease;
         }
 
         .nav-link:hover {
-            color: var(--accent-white);
-            border-color: var(--accent-white);
+            color: #ffffff;
+            border-color: #ffffff;
         }
 
         /* Hero Section */
@@ -94,10 +94,11 @@
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.75rem;
             text-transform: uppercase;
-            border: 1px solid var(--accent-white);
+            border: 1px solid var(--border-color);
             padding: 4px 10px;
             margin-bottom: 32px;
             font-weight: 700;
+            background-color: #ffffff;
         }
 
         h1 {
@@ -128,22 +129,22 @@
 
         .cta-button {
             display: inline-block;
-            background-color: var(--accent-white);
-            color: var(--bg-color);
+            background-color: var(--accent-dark);
+            color: #ffffff;
             text-decoration: none;
             font-family: 'JetBrains Mono', monospace;
             font-weight: 700;
             text-transform: uppercase;
             font-size: 1rem;
             padding: 16px 36px;
-            border: 1px solid var(--accent-white);
+            border: 1px solid var(--accent-dark);
             transition: all 0.2s ease;
             cursor: pointer;
         }
 
         .cta-button:hover {
             background-color: transparent;
-            color: var(--accent-white);
+            color: var(--accent-dark);
         }
 
         /* Section Layouts */
@@ -191,18 +192,18 @@
             font-size: 1.5rem;
             text-transform: uppercase;
             margin-bottom: 16px;
-            font-weight: 300;
+            font-weight: 700;
         }
 
         .tech-card p {
-            color: var(--text-muted);
+            color: #4a5568;
             font-size: 0.95rem;
         }
 
         .card-number {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.8rem;
-            color: var(--text-muted);
+            color: #718096;
             margin-bottom: 16px;
             display: block;
         }
@@ -227,7 +228,7 @@
         .rules-num {
             font-family: 'JetBrains Mono', monospace;
             font-weight: 700;
-            color: var(--accent-white);
+            color: var(--accent-dark);
         }
 
         .rules-content h4 {
@@ -260,7 +261,7 @@
             display: flex;
             flex-direction: column;
             gap: 8px;
-            background-color: rgba(18, 20, 24, 0.4);
+            background-color: rgba(255, 255, 255, 0.6);
         }
 
         @media (min-width: 768px) {
@@ -280,10 +281,10 @@
         .step-level {
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.85rem;
-            color: var(--text-muted);
+            color: #ffffff;
             border: 1px solid var(--border-color);
             padding: 4px 8px;
-            background: var(--bg-color);
+            background: #0b0c0e;
         }
 
         .step-title {
@@ -316,13 +317,13 @@
         }
 
         .meta-text {
-            color: var(--text-muted);
+            color: #4a5568;
             max-width: 750px;
             margin: 0 auto 24px auto;
             font-size: 1rem;
         }
 
-        /* Interface Scan Mockup */
+        /* Interface Scan Mockup (Terminal Mode) */
         .scan-interface {
             background-color: #0b0c0e;
             border: 1px solid var(--border-color);
@@ -331,13 +332,14 @@
             font-size: 0.85rem;
             max-width: 500px;
             margin: 0 auto;
+            color: #7BD14D;
         }
 
         .scan-header {
-            border-bottom: 1px dashed var(--border-color);
+            border-bottom: 1px dashed #7BD14D;
             padding-bottom: 12px;
             margin-bottom: 16px;
-            color: var(--text-muted);
+            color: #8a94a6;
             text-transform: uppercase;
         }
 
@@ -349,7 +351,7 @@
 
         .scan-dots {
             flex-grow: 1;
-            border-bottom: 1px dotted var(--border-color);
+            border-bottom: 1px dotted #3a4438;
             margin: 0 8px;
             position: relative;
             top: -4px;
@@ -395,7 +397,7 @@
         }
 
         .note-body {
-            color: var(--text-muted);
+            color: var(--text-main);
             font-size: 1.1rem;
             margin-bottom: 24px;
         }
@@ -409,7 +411,6 @@
 </head>
 <body>
 
-    <!-- Header Navigation -->
     <header>
         <div class="container nav-wrapper">
             <div class="brand">YANI CREATES™</div>
@@ -417,7 +418,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="badge-challenge">5-Day Focus Challenge</div>
@@ -428,13 +428,12 @@
         </div>
     </section>
 
-    <!-- Context / Rules Section -->
     <section class="container" style="padding-top: 80px;">
         <div class="section-title">01 // System Rules</div>
         <div class="grid-two" style="padding-top: 0;">
             <div>
                 <h2 style="font-size: 2rem; text-transform: uppercase; margin-bottom: 20px; font-weight: 300;">Welcome to Lock In Mode</h2>
-                <p style="color: var(--text-muted); font-size: 1.05rem;">
+                <p style="color: var(--text-main); font-size: 1.05rem;">
                     This is a 5-day completion challenge. Not a planner you'll abandon by Wednesday, and not a passive creative distraction. This is a structured tactile ritual designed to interrupt task paralysis and build a physical runway for your attention.
                     <br><br>
                     Each day, you get one intricate, hand-drawn design to trace. Finish it, unlock your daily achievement badge, and decode a hidden mirror message. Five days. Five letters. One word that proves your focus works.
@@ -475,7 +474,6 @@
         </div>
     </section>
 
-    <!-- Scientific Blueprint -->
     <section class="container" style="padding-top: 80px;">
         <div class="section-title">02 // Neurological Mechanism</div>
         <h2 style="font-size: 2rem; text-transform: uppercase; margin-bottom: 40px; max-width: 600px; font-weight: 300;">Why This Actually Works</h2>
@@ -491,18 +489,17 @@
                 <p>Tracing intricate, hand-drawn lines requires continuous hand-eye coordination. This structural visual interaction forces the brain to engage its Task-Positive Network (the active attention system) while quieting the internal chatter of the Default Mode Network. It allows your nervous system to enter a state of safe, grounded focus without requiring forced willpower.</p>
             </div>
         </div>
-        <p style="text-align: center; padding: 40px 0; color: var(--accent-white); font-size: 1.15rem;">
+        <p style="text-align: center; padding: 40px 0; color: var(--text-main); font-size: 1.15rem; font-weight: 700;">
             You aren't just tracing lines. You are building physical proof that your attention is yours to command.
         </p>
     </section>
 
-    <!-- State Scan Visualization -->
     <section class="container" style="padding-top: 80px;">
         <div class="section-title">03 // Data Feedback Loop</div>
         <div class="grid-two" style="padding-top: 0; align-items: center;">
             <div>
                 <h2 style="font-size: 2rem; text-transform: uppercase; margin-bottom: 20px; font-weight: 300;">Track Your Shift</h2>
-                <p style="color: var(--text-muted); font-size: 1.05rem;">
+                <p style="color: var(--text-main); font-size: 1.05rem;">
                     Before you touch your pen to the paper, you will scan your state. Once you clear the page, you will scan it again.
                     <br><br>
                     This is your raw cognitive data loop. When you are stuck in mental paralysis, your brain struggles to notice internal changes. Forcing yourself to write down the metrics creates a tangible feedback loop, proving that a physical shift has actually occurred.
@@ -519,7 +516,6 @@
         </div>
     </section>
 
-    <!-- Game Roadmap -->
     <section class="container roadmap-container" style="padding-top: 80px;">
         <div class="section-title">04 // The 5-Day Roadmap</div>
         <div class="roadmap-path">
@@ -568,15 +564,14 @@
         </div>
     </section>
 
-    <!-- Action / Upsell / Funnel Optimization -->
     <section id="secure" class="container conversion-zone">
         <h2>Secure Your Next Milestone</h2>
         <p class="conversion-sub">
             Claim 30% off your next standalone challenge in the Boss Series, or apply a custom 15% discount toward the complete 'All Bosses Defeated' collection right now.
         </p>
         <div style="margin-bottom: 40px;">
-            <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 16px;">
-                Enter your email at <a href="https://yanicreates.art/free-sample" style="color: var(--accent-white); font-weight: 700;" target="_blank">yanicreates.art/free-sample</a> to receive your private access code instantly.
+            <p style="font-size: 1.1rem; color: var(--text-main); margin-bottom: 16px;">
+                Enter your email at <a href="https://yanicreates.art/free-sample" style="color: var(--accent-dark); font-weight: 700;" target="_blank">yanicreates.art/free-sample</a> to receive your private access code instantly.
             </p>
             <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-muted);">
                 No endless newsletters. No automated spam loops. Just tools.
@@ -585,7 +580,6 @@
         <a href="https://yanicreates.art/free-sample" class="cta-button" target="_blank">GET YOUR ACCESS CODE</a>
     </section>
 
-    <!-- Note From Author -->
     <section class="container footer-note">
         <div class="note-wrapper">
             <div class="note-title">A Note From Yani</div>
