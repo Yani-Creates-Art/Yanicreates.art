@@ -6,7 +6,8 @@
     <title>YANI CREATES™ | LOCK IN MODE</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Підключення El Messiri (300, 700) та JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@300;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #0b0c0e;
@@ -15,7 +16,6 @@
             --text-main: #e2e8f0;
             --text-muted: #8a94a6;
             --accent-white: #ffffff;
-            --grid-line: rgba(45, 49, 57, 0.4);
         }
 
         * {
@@ -27,30 +27,15 @@
         body {
             background-color: var(--bg-color);
             color: var(--text-main);
-            font-family: 'Space Grotesk', sans-serif;
-            line-height: 1.5;
-            letter-spacing: -0.02em;
+            font-family: 'El Messiri', serif;
+            font-weight: 300;
+            line-height: 1.6;
+            letter-spacing: 0.01em;
             -webkit-font-smoothing: antialiased;
         }
 
         code, pre, .tech-mono {
-            font-family: 'JetBrains+Mono', 'Courier New', monospace;
-        }
-
-        /* Technical Grid Background Effect */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-                linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-            background-size: 40px 40px;
-            z-index: -1;
-            pointer-events: none;
+            font-family: 'JetBrains Mono', 'Courier New', monospace;
         }
 
         .container {
@@ -62,7 +47,7 @@
         /* Header Navbar */
         header {
             border-bottom: 1px solid var(--border-color);
-            background-color: rgba(11, 12, 14, 0.9);
+            background-color: rgba(11, 12, 14, 0.95);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -100,7 +85,7 @@
 
         /* Hero Section */
         .hero {
-            padding: 100px 0 80px 0;
+            padding: 120px 0 100px 0;
             border-bottom: 1px solid var(--border-color);
             position: relative;
         }
@@ -118,28 +103,27 @@
 
         h1 {
             font-size: clamp(3rem, 8vw, 5.5rem);
-            font-weight: 700;
-            line-height: 0.9;
+            font-weight: 300; /* Тонке накреслення для преміального вигляду заголовка */
+            line-height: 1.0;
             text-transform: uppercase;
             margin-bottom: 24px;
-            letter-spacing: -0.04em;
+            letter-spacing: -0.02em;
         }
 
         .hero .tagline {
             font-size: clamp(1.25rem, 3vw, 1.75rem);
             color: var(--text-main);
             max-width: 650px;
-            margin-bottom: 16px;
-            font-weight: 400;
+            margin-bottom: 20px;
+            font-weight: 300;
         }
 
         .hero .sub-tagline {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 1rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
             max-width: 600px;
             margin-bottom: 40px;
-            border-left: 2px solid var(--border-color);
+            border-left: 1px solid var(--border-color);
             padding-left: 16px;
         }
 
@@ -208,7 +192,7 @@
             font-size: 1.5rem;
             text-transform: uppercase;
             margin-bottom: 16px;
-            font-weight: 700;
+            font-weight: 300;
         }
 
         .tech-card p {
@@ -250,7 +234,8 @@
         .rules-content h4 {
             text-transform: uppercase;
             margin-bottom: 6px;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            font-weight: 700;
         }
 
         .rules-content p {
@@ -305,18 +290,18 @@
         .step-title {
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 1.1rem;
+            font-size: 1.15rem;
         }
 
         .step-desc {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
         /* Meta Quest Box */
         .meta-quest-box {
             background-color: var(--surface-color);
-            border: 2px dashed var(--border-color);
+            border: 1px dashed var(--border-color);
             padding: 40px;
             margin-top: 40px;
             text-align: center;
@@ -335,7 +320,7 @@
             color: var(--text-muted);
             max-width: 750px;
             margin: 0 auto 24px auto;
-            font-size: 0.95rem;
+            font-size: 1rem;
         }
 
         /* Interface Scan Mockup */
@@ -382,14 +367,15 @@
             font-size: 2.5rem;
             text-transform: uppercase;
             margin-bottom: 16px;
-            letter-spacing: -0.02em;
+            letter-spacing: -0.01em;
+            font-weight: 300;
         }
 
         .conversion-sub {
             color: var(--text-muted);
             max-width: 600px;
             margin: 0 auto 40px auto;
-            font-size: 1rem;
+            font-size: 1.05rem;
         }
 
         .footer-note {
@@ -411,14 +397,14 @@
 
         .note-body {
             color: var(--text-muted);
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             margin-bottom: 24px;
         }
 
         .note-signature {
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
     </style>
 </head>
@@ -427,32 +413,32 @@
     <!-- Header Navigation -->
     <header>
         <div class="container nav-wrapper">
-            <div class="brand">YANI CREATES™</div>
-            <a href="https://yanicreates.art/quest" class="nav-link" target="_blank">TERMINAL // QUEST</a>
+            <div class="brand">YANI CREATES™[cite: 1]</div>
+            <a href="https://yanicreates.art/quest" class="nav-link" target="_blank">TERMINAL // QUEST[cite: 1]</a>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="badge-challenge">5-Day Focus Challenge</div>
-            <h1>LOCK IN MODE</h1>
-            <p class="tagline">PROVE YOU CAN FINISH SOMETHING.</p>
-            <p class="sub-tagline">Science-Informed Pattern Tools for Scattered Minds. For brains that start ten things and finish none. This one, you finish.</p>
+            <div class="badge-challenge">5-Day Focus Challenge[cite: 1]</div>
+            <h1>LOCK IN MODE[cite: 1]</h1>
+            <p class="tagline">PROVE YOU CAN FINISH SOMETHING.[cite: 1]</p>
+            <p class="sub-tagline">Science-Informed Pattern Tools for Scattered Minds. For brains that start ten things and finish none. This one, you finish.[cite: 1]</p>
             <a href="#secure" class="cta-button">GET THE CHALLENGE</a>
         </div>
     </section>
 
     <!-- Context / Rules Section -->
     <section class="container" style="padding-top: 80px;">
-        <div class="section-title">01 // System Rules</div>
+        <div class="section-title">01 // System Rules[cite: 1]</div>
         <div class="grid-two" style="padding-top: 0;">
             <div>
-                <h2 style="font-size: 2rem; text-transform: uppercase; margin-bottom: 20px;">Welcome to Lock In Mode</h2>
+                <h2 style="font-size: 2rem; text-transform: uppercase; margin-bottom: 20px; font-weight: 300;">Welcome to Lock In Mode[cite: 1]</h2>
                 <p style="color: var(--text-muted); font-size: 1.05rem;">
-                    This is a 5-day completion challenge. Not a planner you'll abandon by Wednesday, and not a passive creative distraction. This is a structured tactile ritual designed to interrupt task paralysis and build a physical runway for your attention.
+                    This is a 5-day completion challenge. Not a planner you'll abandon by Wednesday, and not a passive creative distraction. This is a structured tactile ritual designed to interrupt task paralysis and build a physical runway for your attention.[cite: 1]
                     <br><br>
-                    Each day, you get one intricate, hand-drawn design to trace. Finish it, unlock your daily achievement badge, and decode a hidden mirror message. Five days. Five letters. One word that proves your focus works.
+                    Each day, you get one intricate, hand-drawn design to trace. Finish it, unlock your daily achievement badge, and decode a hidden mirror message. Five days. Five letters. One word that proves your focus works.[cite: 1]
                 </p>
             </div>
             <div>
@@ -460,29 +446,29 @@
                     <li>
                         <div class="rules-num">01</div>
                         <div class="rules-content">
-                            <h4>One Day, One Page</h4>
-                            <p>Do not jump ahead. The order is locked, and the cognitive momentum builds sequentially.</p>
+                            <h4>One Day, One Page[cite: 1]</h4>
+                            <p>Do not jump ahead. The order is locked, and the cognitive momentum builds sequentially.[cite: 1]</p>
                         </div>
                     </li>
                     <li>
                         <div class="rules-num">02</div>
                         <div class="rules-content">
-                            <h4>Navigate with the Mini-Map</h4>
-                            <p>You don't need to finish a page in one sitting. Use the 4-zone mini-map in the margin to break the design into micro-sessions without marking the main artwork.</p>
+                            <h4>Navigate with the Mini-Map[cite: 1]</h4>
+                            <p>You don't need to finish a page in one sitting. Use the 4-zone mini-map in the margin to break the design into micro-sessions without marking the main artwork.[cite: 1]</p>
                         </div>
                     </li>
                     <li>
                         <div class="rules-num">03</div>
                         <div class="rules-content">
-                            <h4>Equip the Right Tools</h4>
-                            <p>Given the extreme density of the patterns, fine-liners or gel pens work best for details, but keep a broader marker handy for bold structural lines.</p>
+                            <h4>Equip the Right Tools[cite: 1]</h4>
+                            <p>Given the extreme density of the patterns, fine-liners or gel pens work best for details, but keep a broader marker handy for bold structural lines.[cite: 1]</p>
                         </div>
                     </li>
                     <li>
                         <div class="rules-num">04</div>
                         <div class="rules-content">
-                            <h4>Print for Precision</h4>
-                            <p>Print this document in Normal or High-Contrast mode. Never use Draft mode, or your printer will lose the fine lines required for tracking.</p>
+                            <h4>Print for Precision[cite: 1]</h4>
+                            <p>Print this document in Normal or High-Contrast mode. Never use Draft mode, or your printer will lose the fine lines required for tracking.[cite: 1]</p>
                         </div>
                     </li>
                 </ul>
@@ -492,43 +478,43 @@
 
     <!-- Scientific Blueprint -->
     <section class="container" style="padding-top: 80px;">
-        <div class="section-title">02 // Neurological Mechanism</div>
-        <h2 style="font-size: 2rem; text-transform: uppercase; margin-bottom: 40px; max-width: 600px;">Why This Actually Works</h2>
+        <div class="section-title">02 // Neurological Mechanism[cite: 1]</div>
+        <h2 style="font-size: 2rem; text-transform: uppercase; margin-bottom: 40px; max-width: 600px; font-weight: 300;">Why This Actually Works[cite: 1]</h2>
         <div class="grid-two" style="padding-top: 0;">
             <div class="tech-card">
                 <span class="card-number">[METHOD_01]</span>
-                <h3>Dopamine via Intentional Completion</h3>
-                <p>Neurodivergent and overwhelmed brains run short on dopamine, driving the urge to constantly switch tasks. Completing a highly structured, low-friction physical task triggers an immediate completion loop, rewarding your brain and rebuilding execution confidence.</p>
+                <h3>Dopamine via Intentional Completion[cite: 1]</h3>
+                <p>Neurodivergent and overwhelmed brains run short on dopamine, driving the urge to constantly switch tasks. Completing a highly structured, low-friction physical task triggers an immediate completion loop, rewarding your brain and rebuilding execution confidence.[cite: 1]</p>
             </div>
             <div class="tech-card">
                 <span class="card-number">[METHOD_02]</span>
-                <h3>The Hyperfocus Side Door</h3>
-                <p>Tracing intricate, hand-drawn lines requires continuous hand-eye coordination. This structural visual interaction forces the brain to engage its Task-Positive Network (the active attention system) while quieting the internal chatter of the Default Mode Network. It allows your nervous system to enter a state of safe, grounded focus without requiring forced willpower.</p>
+                <h3>The Hyperfocus Side Door[cite: 1]</h3>
+                <p>Tracing intricate, hand-drawn lines requires continuous hand-eye coordination. This structural visual interaction forces the brain to engage its Task-Positive Network (the active attention system) while quieting the internal chatter of the Default Mode Network. It allows your nervous system to enter a state of safe, grounded focus without requiring forced willpower.[cite: 1]</p>
             </div>
         </div>
-        <p style="font-family: 'JetBrains Mono', monospace; text-align: center; padding: 40px 0; color: var(--accent-white); font-size: 1rem;">
-            You aren't just tracing lines. You are building physical proof that your attention is yours to command.
+        <p style="text-align: center; padding: 40px 0; color: var(--accent-white); font-size: 1.15rem;">
+            You aren't just tracing lines. You are building physical proof that your attention is yours to command.[cite: 1]
         </p>
     </section>
 
     <!-- State Scan Visualization -->
     <section class="container" style="padding-top: 80px;">
-        <div class="section-title">03 // Data Feedback Loop</div>
+        <div class="section-title">03 // Data Feedback Loop[cite: 1]</div>
         <div class="grid-two" style="padding-top: 0; align-items: center;">
             <div>
-                <h2 style="font-size: 2rem; text-transform: uppercase; margin-bottom: 20px;">Track Your Shift</h2>
+                <h2 style="font-size: 2rem; text-transform: uppercase; margin-bottom: 20px; font-weight: 300;">Track Your Shift[cite: 1]</h2>
                 <p style="color: var(--text-muted); font-size: 1.05rem;">
-                    Before you touch your pen to the paper, you will scan your state. Once you clear the page, you will scan it again.
+                    Before you touch your pen to the paper, you will scan your state. Once you clear the page, you will scan it again.[cite: 1]
                     <br><br>
-                    This is your raw cognitive data loop. When you are stuck in mental paralysis, your brain struggles to notice internal changes. Forcing yourself to write down the metrics creates a tangible feedback loop, proving that a physical shift has actually occurred.
+                    This is your raw cognitive data loop. When you are stuck in mental paralysis, your brain struggles to notice internal changes. Forcing yourself to write down the metrics creates a tangible feedback loop, proving that a physical shift has actually occurred.[cite: 1]
                 </p>
             </div>
             <div>
                 <div class="scan-interface">
-                    <div class="scan-header">COGNITIVE DATA LOOP // BEFORE_START</div>
-                    <div class="scan-line"><span>Scattered Brain</span><span class="scan-dots"></span><span>1 – 10</span></div>
-                    <div class="scan-line"><span>Urge to Switch Tasks</span><span class="scan-dots"></span><span>1 – 10</span></div>
-                    <div class="scan-line"><span>Overwhelm Level</span><span class="scan-dots"></span><span>1 – 10</span></div>
+                    <div class="scan-header">COGNITIVE DATA LOOP // BEFORE_START[cite: 1]</div>
+                    <div class="scan-line"><span>Scattered Brain[cite: 1]</span><span class="scan-dots"></span><span>1 – 10[cite: 1]</span></div>
+                    <div class="scan-line"><span>Urge to Switch Tasks[cite: 1]</span><span class="scan-dots"></span><span>1 – 10[cite: 1]</span></div>
+                    <div class="scan-line"><span>Overwhelm Level[cite: 1]</span><span class="scan-dots"></span><span>1 – 10[cite: 1]</span></div>
                 </div>
             </div>
         </div>
@@ -536,81 +522,81 @@
 
     <!-- Game Roadmap -->
     <section class="container roadmap-container" style="padding-top: 80px;">
-        <div class="section-title">04 // The 5-Day Roadmap</div>
+        <div class="section-title">04 // The 5-Day Roadmap[cite: 1]</div>
         <div class="roadmap-path">
             <div class="roadmap-step">
                 <div class="step-left">
                     <span class="step-level">LVL 01</span>
-                    <span class="step-title">Day 1</span>
+                    <span class="step-title">Day 1[cite: 1]</span>
                 </div>
-                <span class="step-desc">Show up and break the initial inertia.</span>
+                <span class="step-desc">Show up and break the initial inertia.[cite: 1]</span>
             </div>
             <div class="roadmap-step">
                 <div class="step-left">
                     <span class="step-level">LVL 02</span>
-                    <span class="step-title">Day 2</span>
+                    <span class="step-title">Day 2[cite: 1]</span>
                 </div>
-                <span class="step-desc">Stay in the grid and maintain the streak.</span>
+                <span class="step-desc">Stay in the grid and maintain the streak.[cite: 1]</span>
             </div>
             <div class="roadmap-step">
                 <div class="step-left">
                     <span class="step-level">LVL 03</span>
-                    <span class="step-title">Day 3</span>
+                    <span class="step-title">Day 3[cite: 1]</span>
                 </div>
-                <span class="step-desc">Halfway point. Reclaim control.</span>
+                <span class="step-desc">Halfway point. Reclaim control.[cite: 1]</span>
             </div>
             <div class="roadmap-step">
                 <div class="step-left">
                     <span class="step-level">LVL 04</span>
-                    <span class="step-title">Day 4</span>
+                    <span class="step-title">Day 4[cite: 1]</span>
                 </div>
-                <span class="step-desc">High consistency phase. One step left.</span>
+                <span class="step-desc">High consistency phase. One step left.[cite: 1]</span>
             </div>
             <div class="roadmap-step">
                 <div class="step-left">
                     <span class="step-level">LVL 05</span>
-                    <span class="step-title">Day 5</span>
+                    <span class="step-title">Day 5[cite: 1]</span>
                 </div>
-                <span class="step-desc">Locked In. The final payout and word reveal.</span>
+                <span class="step-desc">Locked In. The final payout and word reveal.[cite: 1]</span>
             </div>
         </div>
 
         <div class="meta-quest-box">
-            <div class="meta-title">[ THE META-QUEST INTERFACE ]</div>
+            <div class="meta-title">[ THE META-QUEST INTERFACE ][cite: 1]</div>
             <p class="meta-text">
-                This challenge is the first of four installments in the Boss Series (Procrastination, Overwhelm, Burnout, Frustration). Every book you finish yields one secret Master Word. Collect all four keys, enter them at yanicreates.art/quest, and unlock your Master Certificate along with exclusive physical reward drops.
+                This challenge is the first of four installments in the Boss Series (Procrastination, Overwhelm, Burnout, Frustration). Every book you finish yields one secret Master Word. Collect all four keys, enter them at yanicreates.art/quest, and unlock your Master Certificate along with exclusive physical reward drops.[cite: 1]
             </p>
         </div>
     </section>
 
     <!-- Action / Upsell / Funnel Optimization -->
     <section id="secure" class="container conversion-zone">
-        <h2>Secure Your Next Milestone</h2>
+        <h2>Secure Your Next Milestone[cite: 1]</h2>
         <p class="conversion-sub">
-            Claim 30% off your next standalone challenge in the Boss Series, or apply a custom 15% discount toward the complete 'All Bosses Defeated' collection right now.
+            Claim 30% off your next standalone challenge in the Boss Series, or apply a custom 15% discount toward the complete 'All Bosses Defeated' collection right now.[cite: 1]
         </p>
         <div style="margin-bottom: 40px;">
-            <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 16px;">
-                Enter your email at <a href="https://yanicreates.art/free-sample" style="color: var(--accent-white);" target="_blank">yanicreates.art/free-sample</a> to receive your private access code instantly.
+            <p style="font-size: 1.1rem; color: var(--text-muted); margin-bottom: 16px;">
+                Enter your email at <a href="https://yanicreates.art/free-sample" style="color: var(--accent-white); font-weight: 700;" target="_blank">yanicreates.art/free-sample</a> to receive your private access code instantly.[cite: 1]
             </p>
             <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-muted);">
-                No endless newsletters. No automated spam loops. Just tools.
+                No endless newsletters. No automated spam loops. Just tools.[cite: 1]
             </p>
         </div>
-        <a href="https://yanicreates.art/free-sample" class="cta-button" target="_blank">GET YOUR ACCESS CODE</a>
+        <a href="https://yanicreates.art/free-sample" class="cta-button" target="_blank">GET YOUR ACCESS CODE[cite: 1]</a>
     </section>
 
     <!-- Note From Author -->
     <section class="container footer-note">
         <div class="note-wrapper">
-            <div class="note-title">A Note From Yani</div>
+            <div class="note-title">A Note From Yani[cite: 1]</div>
             <p class="note-body">
-                I built these tools because I was exhausted by systems that asked me to become an entirely different type of person just to cross a finish line. I didn't need more high-pressure productivity lectures; I needed a quiet, structured space to show up, complete a micro-task, and build momentum without overthinking.
+                I built these tools because I was exhausted by systems that asked me to become an entirely different type of person just to cross a finish line. I didn't need more high-pressure productivity lectures; I needed a quiet, structured space to show up, complete a micro-task, and build momentum without overthinking.[cite: 1]
             </p>
             <p class="note-body">
-                If you have extracted your word, the sequence is ready. Head over to the terminal at yanicreates.art/quest, submit your key, and prepare for the next state shift.
+                If you have extracted your word, the sequence is ready. Head over to the terminal at yanicreates.art/quest, submit your key, and prepare for the next state shift.[cite: 1]
             </p>
-            <div class="note-signature">— Yani Creates</div>
+            <div class="note-signature">— Yani Creates[cite: 1]</div>
         </div>
     </section>
 
