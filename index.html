@@ -1,613 +1,714 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YANI CREATES™ | LOCK IN MODE</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@300;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #17042A;       /* Глибокий космічний індиго */
-            --surface-color: #0f021c;  /* Контрастний темніший відтінок для карток */
-            --border-color: #310d54;   /* Стриманий індиго-пурпурний для контурів */
-            --text-color: #f5ebd6;     /* Єдиний теплий світло-бежевий колір для всього тексту */
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lock In Mode — A 5-Day Focus & Completion Challenge | Yani Creates</title>
+<meta name="description" content="A 5-day focus and completion challenge for brains that start ten things and finish none. Blueprint tools, daily achievement badges, and a secret mirror-code mechanic. $9.99 instant download.">
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;600;700&family=Jost:ital,wght@0,300;0,400;0,500;0,600;1,500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'El Messiri', serif;
-            font-weight: 300;
-            line-height: 1.6;
-            letter-spacing: 0.01em;
-            -webkit-font-smoothing: antialiased;
-        } code, pre, .tech-mono {
-            font-family: 'JetBrains Mono', 'Courier New', monospace;
-        }
+<style>
+  :root{
+    --max-width: 1240px;
+    --margin: 20px;
 
-        a {
-            color: var(--text-color);
-            text-decoration: underline;
-        }
+    /* TOKENS — Lock In Mode (Yani Creates / Boss Series 01) */
+    --c-bg: #15130f;          /* near-black, warm */
+    --c-bg-deep: #0e0c09;     /* deepest panel */
+    --c-panel: #1c1914;       /* card surface */
+    --c-line: rgba(245,237,224,0.14);
+    --c-line-soft: rgba(245,237,224,0.07);
+    --c-cream: #f4ecdc;       /* primary text */
+    --c-cream-dim: rgba(244,236,220,0.62);
+    --c-gold: #e3ab43;        /* reward / CTA / "locked" accent */
+    --c-gold-dim: rgba(227,171,67,0.16);
+    --c-green: #79c08a;       /* "secured" / success state */
+    --c-green-dim: rgba(121,192,138,0.14);
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+    --radius-btn: 0.3rem;
+    --radius-card: 0.2rem;
+  }
 
-        /* Header Navbar */
-        header {
-            border-bottom: 1px solid var(--border-color);
-            background-color: rgba(23, 4, 42, 0.95);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(8px);
-        }
+  html{ font-size: 17px; }
+  @media (min-width: 1700px){ html{ font-size: 19px; } }
 
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 70px;
-        }
+  *{ box-sizing: border-box; margin:0; padding:0; }
 
-        .brand {
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-size: 0.95rem;
-            color: var(--text-color);
-        }
+  body{
+    background:
+      radial-gradient(ellipse 900px 500px at 50% -10%, rgba(227,171,67,0.07), transparent 60%),
+      var(--c-bg);
+    color: var(--c-cream);
+    font-family:'Jost', sans-serif;
+    font-weight:400;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
 
-        .nav-link {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--text-color);
-            text-decoration: none;
-            border: 1px solid var(--border-color);
-            padding: 6px 12px;
-            transition: all 0.2s ease;
-        }
+  .container{ max-width: var(--max-width); width:100%; margin:0 auto; padding:0 var(--margin); }
 
-        .nav-link:hover {
-            border-color: var(--text-color);
-        }
+  .display{ font-family:'El Messiri', sans-serif; font-weight:700; letter-spacing:-0.01em; }
+  .hud{ font-family:'Space Mono', monospace; text-transform:uppercase; letter-spacing:0.12em; }
 
-        /* Hero Section */
-        .hero {
-            padding: 120px 0 100px 0;
-            border-bottom: 1px solid var(--border-color);
-            position: relative;
-        }
+  h1{ font-size: clamp(2.6rem, 6vw, 4.6rem); line-height:1.02; }
+  h2{ font-family:'El Messiri', sans-serif; font-weight:700; font-size: clamp(1.7rem, 3vw, 2.4rem); line-height:1.12; }
+  h3{ font-family:'El Messiri', sans-serif; font-weight:700; font-size:1.25rem; }
 
-        .badge-challenge {
-            display: inline-block;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            border: 1px solid var(--text-color);
-            padding: 4px 10px;
-            margin-bottom: 32px;
-            font-weight: 700;
-            color: var(--text-color);
-        }
+  a{ color:inherit; }
 
-        h1 {
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            font-weight: 300;
-            line-height: 1.0;
-            text-transform: uppercase;
-            margin-bottom: 24px;
-            letter-spacing: -0.02em;
-            color: var(--text-color);
-        }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:0.6rem;
+    font-family:'Space Mono', monospace; font-size:0.72rem; letter-spacing:0.18em; text-transform:uppercase;
+    color: var(--c-gold);
+  }
+  .eyebrow::before{ content:''; width:0.5rem; height:0.5rem; background:var(--c-gold); display:inline-block; }
 
-        .hero .tagline {
-            font-size: clamp(1.25rem, 3vw, 1.75rem);
-            color: var(--text-color);
-            max-width: 650px;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
+  section{ padding: 5.2rem 0; position:relative; }
+  section.tight{ padding: 3.2rem 0; }
+  .divider{ height:1px; background:var(--c-line); width:100%; }
 
-        .hero .sub-tagline {
-            font-size: 1.1rem;
-            color: var(--text-color);
-            max-width: 600px;
-            margin-bottom: 40px;
-            border-left: 1px solid var(--border-color);
-            padding-left: 16px;
-        }
+  /* ---------- BUTTONS ---------- */
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:0.5rem;
+    font-family:'Space Mono', monospace; font-size:0.82rem; letter-spacing:0.06em; text-transform:uppercase;
+    padding: 0.95rem 1.8rem; border-radius:var(--radius-btn);
+    text-decoration:none; cursor:pointer; border:1px solid transparent;
+    transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  }
+  .btn-primary{ background: var(--c-gold); color:#1c1410; font-weight:700; box-shadow: 0 8px 24px rgba(227,171,67,0.18); }
+  .btn-primary:hover{ transform: translateY(-2px); box-shadow: 0 12px 28px rgba(227,171,67,0.3); }
+  .btn-ghost{ border-color: var(--c-line); color: var(--c-cream); }
+  .btn-ghost:hover{ border-color: var(--c-cream); transform: translateY(-2px); }
+  .btn-row{ display:flex; flex-wrap:wrap; gap:0.9rem; align-items:center; }
 
-        .cta-button {
-            display: inline-block;
-            background-color: transparent;
-            color: var(--text-color);
-            text-decoration: none;
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 1rem;
-            padding: 16px 36px;
-            border: 1px solid var(--text-color);
-            transition: all 0.2s ease;
-            cursor: pointer;
-        }
+  /* ---------- HEADER ---------- */
+  header.site{ padding: 1.6rem 0; }
+  .site-grid{ display:flex; align-items:center; justify-content:space-between; }
+  .wordmark{ font-family:'El Messiri', sans-serif; font-weight:700; font-size:1.15rem; letter-spacing:0.02em; }
+  .wordmark span{ color: var(--c-gold); }
+  .header-cta{ font-family:'Space Mono', monospace; font-size:0.76rem; letter-spacing:0.08em; text-transform:uppercase; color: var(--c-cream-dim); }
 
-        .cta-button:hover {
-            background-color: var(--text-color);
-            color: var(--bg-color);
-        }
+  /* ---------- HERO ---------- */
+  .hero{ padding-top: 2.4rem; padding-bottom: 4.5rem; }
+  .hero-grid{ display:grid; grid-template-columns: 1.05fr 0.95fr; gap: 3.5rem; align-items:center; }
+  .hero-copy h1{ margin: 0.9rem 0 1.1rem; }
+  .hero-copy .sub{ font-family:'El Messiri', sans-serif; font-weight:600; font-size:1.25rem; color: var(--c-gold); margin-bottom:0.9rem; }
+  .hero-copy p.lede{ font-size:1.08rem; color: var(--c-cream-dim); max-width:34rem; margin-bottom:1.8rem; }
+  .hero-meta{ display:flex; gap:1.6rem; margin-top:1.8rem; flex-wrap:wrap; }
+  .hero-meta-item{ font-family:'Space Mono', monospace; font-size:0.72rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--c-cream-dim); display:flex; align-items:center; gap:0.5rem; }
+  .hero-meta-item::before{ content:'›'; color:var(--c-gold); }
 
-        /* Section Layouts */
-        .section-title {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            color: var(--text-color);
-            margin-bottom: 48px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
+  /* ---------- MOCKUP PLACEHOLDERS ---------- */
+  .mockup-slot{
+    border: 1px dashed rgba(244,236,220,0.3);
+    background: linear-gradient(160deg, var(--c-panel), var(--c-bg-deep));
+    border-radius: var(--radius-card);
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.5rem;
+    text-align:center; color: var(--c-cream-dim);
+    position:relative; overflow:hidden;
+  }
+  .mockup-slot::before{
+    content:''; position:absolute; inset:0;
+    background: repeating-linear-gradient(135deg, transparent, transparent 18px, rgba(244,236,220,0.025) 18px, rgba(244,236,220,0.025) 19px);
+  }
+  .mockup-slot .ms-label{ font-family:'Space Mono', monospace; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; position:relative; z-index:1; }
+  .mockup-slot .ms-sub{ font-size:0.74rem; opacity:0.7; position:relative; z-index:1; max-width: 18rem; }
+  .mockup-slot.hero-mockup{ aspect-ratio: 4/5; }
+  .mockup-slot.tile-mockup{ aspect-ratio: 3/4; }
+  .mockup-slot.wide-mockup{ aspect-ratio: 16/7; }
 
-        .section-title::after {
-            content: "";
-            flex-grow: 1;
-            height: 1px;
-            background-color: var(--border-color);
-        }
+  /* ---------- PAIN / AGITATE BAND ---------- */
+  .pain-band{ background: var(--c-bg-deep); border-top:1px solid var(--c-line-soft); border-bottom:1px solid var(--c-line-soft); }
+  .pain-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:2.2rem; }
+  .pain-item p{ font-family:'El Messiri', sans-serif; font-size:1.15rem; font-weight:600; color: var(--c-cream); }
+  .pain-item span{ font-family:'Space Mono', monospace; font-size:0.7rem; color: var(--c-gold); letter-spacing:0.1em; }
 
-        .grid-two {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 40px;
-            padding: 60px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
+  /* ---------- HOW IT WORKS ---------- */
+  .section-head{ max-width:38rem; margin-bottom: 2.6rem; }
+  .section-head p{ color: var(--c-cream-dim); margin-top:0.7rem; }
 
-        @media (min-width: 768px) {
-            .grid-two {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
+  .steps-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap:1.6rem; }
+  .step-card{ border:1px solid var(--c-line); border-radius:var(--radius-card); padding:1.6rem 1.4rem; background:var(--c-panel); }
+  .step-num{ font-family:'Space Mono', monospace; color: var(--c-gold); font-size:0.85rem; margin-bottom:0.9rem; display:block; }
+  .step-card h3{ margin-bottom:0.5rem; font-size:1.05rem; }
+  .step-card p{ font-size:0.92rem; color: var(--c-cream-dim); }
 
-        /* Cards & Content Blocks */
-        .tech-card {
-            background-color: var(--surface-color);
-            border: 1px solid var(--border-color);
-            padding: 32px;
-            position: relative;
-        }
+  /* ---------- RULES STRIP ---------- */
+  .rules-strip{ display:grid; grid-template-columns: repeat(4,1fr); gap:1px; background:var(--c-line); border:1px solid var(--c-line); margin-top:2.8rem; }
+  .rule-cell{ background: var(--c-bg-deep); padding:1.4rem; }
+  .rule-cell .hud{ font-size:0.66rem; color:var(--c-green); display:block; margin-bottom:0.5rem; }
+  .rule-cell p{ font-size:0.86rem; color: var(--c-cream-dim); }
 
-        .tech-card h3 {
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-            font-weight: 300;
-            color: var(--text-color);
-        }
+  /* ---------- SCIENCE CARD ---------- */
+  .science-section{ background: var(--c-bg-deep); border-top:1px solid var(--c-line-soft); border-bottom:1px solid var(--c-line-soft); }
+  .science-grid{ display:grid; grid-template-columns: 0.9fr 1.1fr; gap:3rem; align-items:start; }
+  .science-card{ border:1px solid var(--c-line); background:var(--c-panel); border-radius:var(--radius-card); padding:1.8rem; }
+  .science-card + .science-card{ margin-top:1.2rem; }
+  .science-card .hud{ font-size:0.66rem; color:var(--c-gold); display:block; margin-bottom:0.6rem; }
+  .science-card p{ font-size:0.92rem; color:var(--c-cream-dim); }
+  .science-foot{ font-family:'Space Mono', monospace; font-size:0.68rem; color:var(--c-cream-dim); opacity:0.7; margin-top:1rem; letter-spacing:0.04em; }
 
-        .tech-card p {
-            color: var(--text-color);
-            font-size: 0.95rem;
-        }
+  /* ---------- MIRROR DECODER (signature element) ---------- */
+  .decoder-wrap{ display:grid; grid-template-columns: 1fr 1fr; gap:3rem; align-items:center; }
+  .decoder-box{
+    border:1px solid var(--c-line); background:var(--c-panel); border-radius:var(--radius-card);
+    padding:2.4rem; text-align:center; cursor:pointer; user-select:none;
+    transition: border-color 0.2s ease;
+  }
+  .decoder-box:hover{ border-color: var(--c-gold); }
+  .decoder-box .hud{ font-size:0.68rem; color:var(--c-green); margin-bottom:1.4rem; display:block; }
+  .mirror-text{
+    font-family:'El Messiri', sans-serif; font-size:1.3rem; font-weight:600;
+    transform: scaleX(-1); transition: transform 0.5s ease;
+    display:inline-block;
+  }
+  .decoder-box.revealed .mirror-text{ transform: scaleX(1); }
+  .decoder-box.revealed .mirror-text .first-letter{ color: var(--c-gold); }
+  .decoder-tap{ margin-top:1.4rem; font-family:'Space Mono', monospace; font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color: var(--c-cream-dim); }
+  .letter-slots{ display:flex; gap:0.7rem; justify-content:center; margin-top:1.6rem; }
+  .letter-slot{
+    width:2.6rem; height:2.6rem; border:1px solid var(--c-line); border-radius:0.15rem;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Space Mono', monospace; font-weight:700; font-size:1.1rem; color: var(--c-cream-dim);
+    transition: border-color 0.3s ease, color 0.3s ease;
+  }
+  .letter-slot.filled{ border-color: var(--c-gold); color: var(--c-gold); }
 
-        .card-number {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.8rem;
-            color: var(--text-color);
-            margin-bottom: 16px;
-            display: block;
-        }
+  /* ---------- ROADMAP ---------- */
+  .roadmap{ position:relative; }
+  .roadmap-track{ position:relative; padding-left:1.6rem; }
+  .roadmap-track::before{ content:''; position:absolute; left:0; top:0.5rem; bottom:0.5rem; width:1px; background:var(--c-line); }
+  .level-row{ display:grid; grid-template-columns: 7rem 1fr; gap:1.4rem; padding: 1.3rem 0; border-bottom:1px solid var(--c-line-soft); position:relative; }
+  .level-row:last-child{ border-bottom:none; }
+  .level-row::before{ content:''; position:absolute; left:-1.6rem; top:1.6rem; width:0.55rem; height:0.55rem; border-radius:50%; background: var(--c-bg); border:2px solid var(--c-gold); }
+  .level-tag{ font-family:'Space Mono', monospace; font-size:0.78rem; color: var(--c-gold); }
+  .level-row h3{ font-size:1rem; margin-bottom:0.25rem; }
+  .level-row p{ font-size:0.88rem; color:var(--c-cream-dim); }
+  .level-final::before{ background: var(--c-gold); border-color: var(--c-gold); }
 
-        /* Rules List */
-        .rules-list {
-            list-style: none;
-        }
+  .quest-note{ margin-top:2.2rem; border-left:2px solid var(--c-gold); padding-left:1.2rem; color:var(--c-cream-dim); font-size:0.92rem; }
 
-        .rules-list li {
-            border-bottom: 1px solid var(--border-color);
-            padding: 20px 0;
-            display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 24px;
-        }
+  /* ---------- WHAT'S INSIDE GALLERY ---------- */
+  .gallery-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap:1.4rem; }
+  .gallery-grid .gallery-caption{ font-family:'Space Mono', monospace; font-size:0.7rem; letter-spacing:0.05em; text-transform:uppercase; color:var(--c-cream-dim); margin-top:0.7rem; text-align:center; }
 
-        .rules-list li:last-child {
-            border-bottom: none;
-        }
+  /* ---------- FREE SAMPLE ---------- */
+  .sample-section{ background: var(--c-bg-deep); border-top:1px solid var(--c-line-soft); border-bottom:1px solid var(--c-line-soft); }
+  .sample-grid{ display:grid; grid-template-columns: 0.9fr 1.1fr; gap:3rem; align-items:center; }
+  .sample-form{ display:flex; gap:0.8rem; margin-top:1.6rem; flex-wrap:wrap; }
+  .sample-form input{
+    flex:1; min-width:14rem; background:var(--c-panel); border:1px solid var(--c-line); border-radius:var(--radius-btn);
+    padding:0.9rem 1.1rem; color:var(--c-cream); font-family:'Jost', sans-serif; font-size:0.92rem;
+  }
+  .sample-form input::placeholder{ color: var(--c-cream-dim); }
+  .sample-note{ font-size:0.78rem; color: var(--c-cream-dim); margin-top:0.8rem; opacity:0.8; }
 
-        .rules-num {
-            font-family: 'JetBrains Mono', monospace;
-            font-weight: 700;
-            color: var(--text-color);
-        }
+  /* ---------- SERIES TEASER ---------- */
+  .series-grid{ display:grid; grid-template-columns: repeat(4,1fr); gap:1.2rem; }
+  .series-card{ border:1px solid var(--c-line); border-radius:var(--radius-card); padding:1.4rem; background:var(--c-panel); position:relative; }
+  .series-card.active{ border-color: var(--c-gold); }
+  .series-card .hud{ font-size:0.62rem; color:var(--c-cream-dim); display:block; margin-bottom:0.6rem; }
+  .series-card.active .hud{ color: var(--c-gold); }
+  .series-card h3{ font-size:0.98rem; margin-bottom:0.3rem; }
+  .series-card p{ font-size:0.82rem; color:var(--c-cream-dim); }
+  .series-card .lock-icon{ position:absolute; top:1.2rem; right:1.2rem; font-size:0.9rem; opacity:0.5; }
+  .bundle-banner{ margin-top:1.6rem; border:1px solid var(--c-gold); border-radius:var(--radius-card); padding:1.4rem 1.6rem; display:flex; justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; background: var(--c-gold-dim); }
+  .bundle-banner p{ font-size:0.92rem; }
+  .bundle-banner strong{ color: var(--c-gold); }
 
-        .rules-content h4 {
-            text-transform: uppercase;
-            margin-bottom: 6px;
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--text-color);
-        }
+  /* ---------- PRICING / CTA ---------- */
+  .pricing-card{
+    border:1px solid var(--c-gold); border-radius:var(--radius-card);
+    background: linear-gradient(160deg, var(--c-panel), var(--c-bg-deep));
+    padding: 3rem; display:grid; grid-template-columns: 1.1fr 0.9fr; gap:2.6rem; align-items:center;
+  }
+  .price-tag{ font-family:'El Messiri', sans-serif; font-weight:700; font-size:3rem; color: var(--c-gold); }
+  .price-tag span{ font-size:1.1rem; color: var(--c-cream-dim); font-family:'Space Mono', monospace; }
+  .includes-list{ list-style:none; margin:1.4rem 0 1.8rem; display:flex; flex-direction:column; gap:0.6rem; }
+  .includes-list li{ font-size:0.92rem; color:var(--c-cream-dim); display:flex; gap:0.6rem; }
+  .includes-list li::before{ content:'✓'; color: var(--c-green); font-weight:700; }
 
-        .rules-content p {
-            color: var(--text-color);
-            font-size: 0.95rem;
-        }
+  /* ---------- REVIEWS ---------- */
+  .reviews-grid{ display:grid; grid-template-columns: repeat(3,1fr); gap:1.4rem; }
+  .review-card{ border:1px dashed rgba(244,236,220,0.3); border-radius:var(--radius-card); padding:1.6rem; background:var(--c-panel); }
+  .review-card .hud{ font-size:0.6rem; color: var(--c-gold); display:block; margin-bottom:0.8rem; }
+  .review-card p{ font-size:0.88rem; color: var(--c-cream-dim); font-style:italic; }
 
-        /* Roadmap Game Style */
-        .roadmap-container {
-            padding: 60px 0;
-            border-bottom: 1px solid var(--border-color);
-        }
+  /* ---------- FAQ ---------- */
+  .faq-item{ border-bottom:1px solid var(--c-line); }
+  .faq-item summary{ list-style:none; padding:1.3rem 0; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:1rem; font-family:'El Messiri', sans-serif; font-weight:600; font-size:1rem; }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary::after{ content:'+'; font-family:'Space Mono', monospace; color: var(--c-gold); font-size:1.2rem; flex-shrink:0; transition: transform 0.2s ease; }
+  .faq-item[open] summary::after{ transform: rotate(45deg); }
+  .faq-item .faq-content{ padding-bottom:1.3rem; color: var(--c-cream-dim); font-size:0.92rem; max-width:42rem; }
 
-        .roadmap-path {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
+  /* ---------- NOTE FROM YANI ---------- */
+  .note-section{ max-width:38rem; }
+  .note-section p{ color: var(--c-cream-dim); margin-bottom:1rem; }
+  .signature{ font-family:'El Messiri', sans-serif; font-style:italic; color:var(--c-gold); margin-top:1.4rem; font-size:1.1rem; }
 
-        .roadmap-step {
-            border: 1px solid var(--border-color);
-            padding: 20px 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            background-color: rgba(15, 2, 28, 0.4);
-        }
+  /* ---------- FOOTER ---------- */
+  footer{ border-top:1px solid var(--c-line); padding: 3rem 0 2rem; }
+  .footer-grid{ display:flex; justify-content:space-between; gap:2rem; flex-wrap:wrap; }
+  .footer-cols{ display:flex; gap:3rem; flex-wrap:wrap; }
+  .footer-col h4{ font-family:'Space Mono', monospace; font-size:0.68rem; letter-spacing:0.1em; text-transform:uppercase; color: var(--c-gold); margin-bottom:0.8rem; }
+  .footer-col a{ display:block; text-decoration:none; color: var(--c-cream-dim); font-size:0.88rem; margin-bottom:0.5rem; }
+  .footer-bottom{ margin-top:2.4rem; padding-top:1.4rem; border-top:1px solid var(--c-line-soft); font-size:0.74rem; color: var(--c-cream-dim); display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.6rem; }
 
-        @media (min-width: 768px) {
-            .roadmap-step {
-                flex-direction: row;
-                align-items: center;
-                justify-content: space-between;
-            }
-        }
+  /* ---------- STICKY MOBILE CTA ---------- */
+  .sticky-cta{ position:fixed; bottom:0; left:0; right:0; background: var(--c-bg-deep); border-top:1px solid var(--c-line); padding:0.8rem var(--margin); display:none; z-index:50; }
+  .sticky-cta .btn-primary{ width:100%; }
 
-        .step-left {
-            display: flex;
-            align-items: center;
-            gap: 24px;
-        }
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 980px){
+    .hero-grid, .science-grid, .decoder-wrap, .sample-grid, .pricing-card{ grid-template-columns: 1fr; }
+    .pain-grid, .steps-grid, .gallery-grid, .series-grid, .reviews-grid, .rules-strip{ grid-template-columns: repeat(2,1fr); }
+    section{ padding: 3.4rem 0; }
+    .sticky-cta{ display:block; }
+    body{ padding-bottom: 4.2rem; }
+  }
+  @media (max-width: 560px){
+    .pain-grid, .steps-grid, .gallery-grid, .series-grid, .reviews-grid, .rules-strip{ grid-template-columns: 1fr; }
+    .pricing-card{ padding:1.8rem; }
+  }
 
-        .step-level {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--text-color);
-            border: 1px solid var(--border-color);
-            padding: 4px 8px;
-            background: var(--bg-color);
-        }
-
-        .step-title {
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 1.15rem;
-            color: var(--text-color);
-        }
-
-        .step-desc {
-            color: var(--text-color);
-            font-size: 0.95rem;
-        }
-
-        /* Meta Quest Box */
-        .meta-quest-box {
-            background-color: var(--surface-color);
-            border: 1px dashed var(--border-color);
-            padding: 40px;
-            margin-top: 40px;
-            text-align: center;
-        }
-
-        .meta-title {
-            font-family: 'JetBrains Mono', monospace;
-            text-transform: uppercase;
-            font-weight: 700;
-            margin-bottom: 16px;
-            font-size: 1.1rem;
-            letter-spacing: 0.05em;
-            color: var(--text-color);
-        }
-
-        .meta-text {
-            color: var(--text-color);
-            max-width: 750px;
-            margin: 0 auto 24px auto;
-            font-size: 1rem;
-        }
-
-        /* Interface Scan Mockup */
-        .scan-interface {
-            background-color: #0b0114;
-            border: 1px solid var(--border-color);
-            padding: 24px;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            max-width: 500px;
-            margin: 0 auto;
-            color: var(--text-color);
-        }
-
-        .scan-header {
-            border-bottom: 1px dashed var(--border-color);
-            padding-bottom: 12px;
-            margin-bottom: 16px;
-            color: var(--text-color);
-            text-transform: uppercase;
-        }
-
-        .scan-line {
-            margin-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .scan-dots {
-            flex-grow: 1;
-            border-bottom: 1px dotted var(--border-color);
-            margin: 0 8px;
-            position: relative;
-            top: -4px;
-        }
-
-        /* Conversion / Footer Section */
-        .conversion-zone {
-            padding: 100px 0;
-            text-align: center;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .conversion-zone h2 {
-            font-size: 2.5rem;
-            text-transform: uppercase;
-            margin-bottom: 16px;
-            letter-spacing: -0.01em;
-            font-weight: 300;
-            color: var(--text-color);
-        }
-
-        .conversion-sub {
-            color: var(--text-color);
-            max-width: 600px;
-            margin: 0 auto 40px auto;
-            font-size: 1.05rem;
-        }
-
-        .footer-note {
-            padding: 80px 0;
-            text-align: left;
-        }
-
-        .note-wrapper {
-            max-width: 650px;
-        }
-
-        .note-title {
-            font-family: 'JetBrains Mono', monospace;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            color: var(--text-color);
-            margin-bottom: 24px;
-        }
-
-        .note-body {
-            color: var(--text-color);
-            font-size: 1.1rem;
-            margin-bottom: 24px;
-        }
-
-        .note-signature {
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.95rem;
-            color: var(--text-color);
-        }
-    </style>
+  @media (prefers-reduced-motion: reduce){
+    *{ transition:none !important; animation:none !important; }
+  }
+</style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <header>
-        <div class="container nav-wrapper">
-            <div class="brand">YANI CREATES™</div>
-            <a href="https://yanicreates.art/quest" class="nav-link" target="_blank">TERMINAL // QUEST</a>
-        </div>
-    </header>
+<header class="site">
+  <div class="container site-grid">
+    <div class="wordmark">YANI CREATES<span>™</span></div>
+    <div class="header-cta">Boss Series 01 · Procrastination</div>
+  </div>
+</header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="badge-challenge">5-Day Focus Challenge</div>
-            <h1>LOCK IN MODE</h1>
-            <p class="tagline">PROVE YOU CAN FINISH SOMETHING.</p>
-            <p class="sub-tagline">Science-Informed Pattern Tools for Scattered Minds. For brains that start ten things and finish none. This one, you finish.</p>
-            <a href="#secure" class="cta-button">GET THE CHALLENGE</a>
-        </div>
-    </section>
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">5-Day Focus & Completion Challenge</span>
+      <h1 class="display">LOCK IN<br>MODE</h1>
+      <p class="sub">Prove you can finish something.</p>
+      <p class="lede">Blueprint tools for scattered minds. For brains that start ten things and finish none — this one, you finish. Five days, five intricate circuits, one decoded word.</p>
+      <div class="btn-row">
+        <a href="#pricing" class="btn btn-primary">Get the Challenge — $9.99</a>
+        <a href="#sample" class="btn btn-ghost">Try Day 1 Free</a>
+      </div>
+      <div class="hero-meta">
+        <span class="hero-meta-item">Instant digital download</span>
+        <span class="hero-meta-item">20-page printable PDF</span>
+        <span class="hero-meta-item">Print at home, any printer</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <!-- MOCKUP SLOT 1 — Replace this div's contents with: <img src="mockups/cover-mockup.jpg" alt="Lock In Mode cover mockup"> -->
+      <div class="mockup-slot hero-mockup">
+        <span class="ms-label">Mockup: Cover</span>
+        <span class="ms-sub">Drop in a styled photo/render of the printed cover page here — ideally on a desk with a pen and the achievement badge visible.</span>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Context / Rules Section -->
-    <section class="container" style="padding-top: 80px;">
-        <div class="section-title">01 // System Rules</div>
-        <div class="grid-two" style="padding-top: 0;">
-            <div>
-                <h2 style="font-size: 2rem; text-transform: uppercase; margin-bottom: 20px; font-weight: 300; color: var(--text-color);">Welcome to Lock In Mode</h2>
-                <p style="color: var(--text-color); font-size: 1.05rem;">
-                    This is a 5-day completion challenge. Not a planner you'll abandon by Wednesday, and not a passive creative distraction. This is a structured tactile ritual designed to interrupt task paralysis and build a physical runway for your attention.
-                    <br><br>
-                    Each day, you get one intricate, hand-drawn design to trace. Finish it, unlock your daily achievement badge, and decode a hidden mirror message. Five days. Five letters. One word that proves your focus works.
-                </p>
-            </div>
-            <div>
-                <ul class="rules-list">
-                    <li>
-                        <div class="rules-num">01</div>
-                        <div class="rules-content">
-                            <h4>One Day, One Page</h4>
-                            <p>Do not jump ahead. The order is locked, and the cognitive momentum builds sequentially.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="rules-num">02</div>
-                        <div class="rules-content">
-                            <h4>Navigate with the Mini-Map</h4>
-                            <p>You don't need to finish a page in one sitting. Use the 4-zone mini-map in the margin to break the design into micro-sessions without marking the main artwork.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="rules-num">03</div>
-                        <div class="rules-content">
-                            <h4>Equip the Right Tools</h4>
-                            <p>Given the extreme density of the patterns, fine-liners or gel pens work best for details, but keep a broader marker handy for bold structural lines.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="rules-num">04</div>
-                        <div class="rules-content">
-                            <h4>Print for Precision</h4>
-                            <p>Print this document in Normal or High-Contrast mode. Never use Draft mode, or your printer will lose the fine lines required for tracking.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
+<!-- ============ PAIN BAND ============ -->
+<section class="pain-band tight">
+  <div class="container pain-grid">
+    <div class="pain-item">
+      <span class="hud">// 14 open tabs</span>
+      <p>You bought the planner. It's on page 3.</p>
+    </div>
+    <div class="pain-item">
+      <span class="hud">// task 1 of 1</span>
+      <p>You don't need more tasks. You need one you'll actually close out.</p>
+    </div>
+    <div class="pain-item">
+      <span class="hud">// proof, not promises</span>
+      <p>Five days of physical evidence that your focus works when the system fits your brain.</p>
+    </div>
+  </div>
+</section>
 
-    <!-- Scientific Blueprint -->
-    <section class="container" style="padding-top: 80px;">
-        <div class="section-title">02 // Neurological Mechanism</div>
-        <h2 style="font-size: 2rem; text-transform: uppercase; margin-bottom: 40px; max-width: 600px; font-weight: 300; color: var(--text-color);">Why This Actually Works</h2>
-        <div class="grid-two" style="padding-top: 0;">
-            <div class="tech-card">
-                <span class="card-number">[METHOD_01]</span>
-                <h3>Dopamine via Intentional Completion</h3>
-                <p>Neurodivergent and overwhelmed brains run short on dopamine, driving the urge to constantly switch tasks. Completing a highly structured, low-friction physical task triggers an immediate completion loop, rewarding your brain and rebuilding execution confidence.</p>
-            </div>
-            <div class="tech-card">
-                <span class="card-number">[METHOD_02]</span>
-                <h3>The Hyperfocus Side Door</h3>
-                <p>Tracing intricate, hand-drawn lines requires continuous hand-eye coordination. This structural visual interaction forces the brain to engage its Task-Positive Network (the active attention system) while quieting the internal chatter of the Default Mode Network. It allows your nervous system to enter a state of safe, grounded focus without requiring forced willpower.</p>
-            </div>
-        </div>
-        <p style="text-align: center; padding: 40px 0; color: var(--text-color); font-size: 1.15rem;">
-            You aren't just tracing lines. You are building physical proof that your attention is yours to command.
-        </p>
-    </section>
+<!-- ============ HOW IT WORKS ============ -->
+<section id="how">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">How it works</span>
+      <h2>One circuit a day. One letter per finish.</h2>
+      <p>Not a planner you'll abandon by Wednesday. A structured tactile ritual built to interrupt task paralysis and give your attention a physical runway.</p>
+    </div>
 
-    <!-- State Scan Visualization -->
-    <section class="container" style="padding-top: 80px;">
-        <div class="section-title">03 // Data Feedback Loop</div>
-        <div class="grid-two" style="padding-top: 0; align-items: center;">
-            <div>
-                <h2 style="font-size: 2rem; text-transform: uppercase; margin-bottom: 20px; font-weight: 300; color: var(--text-color);">Track Your Shift</h2>
-                <p style="color: var(--text-color); font-size: 1.05rem;">
-                    Before you touch your pen to the paper, you will scan your state. Once you clear the page, you will scan it again.
-                    <br><br>
-                    This is your raw cognitive data loop. When you are stuck in mental paralysis, your brain struggles to notice internal changes. Forcing yourself to write down the metrics creates a tangible feedback loop, proving that a physical shift has actually occurred.
-                </p>
-            </div>
-            <div>
-                <div class="scan-interface">
-                    <div class="scan-header">COGNITIVE DATA LOOP // BEFORE_START</div>
-                    <div class="scan-line"><span>Scattered Brain</span><span class="scan-dots"></span><span>1 – 10</span></div>
-                    <div class="scan-line"><span>Urge to Switch Tasks</span><span class="scan-dots"></span><span>1 – 10</span></div>
-                    <div class="scan-line"><span>Overwhelm Level</span><span class="scan-dots"></span><span>1 – 10</span></div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <div class="steps-grid">
+      <div class="step-card">
+        <span class="step-num hud">01</span>
+        <h3>Trace one circuit</h3>
+        <p>A dense, hand-drawn design printed at low opacity. One per day. The order is locked on purpose.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num hud">02</span>
+        <h3>Scan your state</h3>
+        <p>Rate your scattered-ness 1–10 before and after. Watch the gap. That gap is your proof.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num hud">03</span>
+        <h3>Unlock your badge</h3>
+        <p>Finish the page, claim a unique daily achievement stamp — plus a horizontally mirrored message.</p>
+      </div>
+      <div class="step-card">
+        <span class="step-num hud">04</span>
+        <h3>Decode your letter</h3>
+        <p>Hold the page to a mirror. The first letter goes in your box. Five days, five letters, one word.</p>
+      </div>
+    </div>
 
-    <!-- Game Roadmap -->
-    <section class="container roadmap-container" style="padding-top: 80px;">
-        <div class="section-title">04 // The 5-Day Roadmap</div>
-        <div class="roadmap-path">
-            <div class="roadmap-step">
-                <div class="step-left">
-                    <span class="step-level">LVL 01</span>
-                    <span class="step-title">Day 1</span>
-                </div>
-                <span class="step-desc">Show up and break the initial inertia.</span>
-            </div>
-            <div class="roadmap-step">
-                <div class="step-left">
-                    <span class="step-level">LVL 02</span>
-                    <span class="step-title">Day 2</span>
-                </div>
-                <span class="step-desc">Stay in the grid and maintain the streak.</span>
-            </div>
-            <div class="roadmap-step">
-                <div class="step-left">
-                    <span class="step-level">LVL 03</span>
-                    <span class="step-title">Day 3</span>
-                </div>
-                <span class="step-desc">Halfway point. Reclaim control.</span>
-            </div>
-            <div class="roadmap-step">
-                <div class="step-left">
-                    <span class="step-level">LVL 04</span>
-                    <span class="step-title">Day 4</span>
-                </div>
-                <span class="step-desc">High consistency phase. One step left.</span>
-            </div>
-            <div class="roadmap-step">
-                <div class="step-left">
-                    <span class="step-level">LVL 05</span>
-                    <span class="step-title">Day 5</span>
-                </div>
-                <span class="step-desc">Locked In. The final payout and word reveal.</span>
-            </div>
-        </div>
+    <div class="rules-strip">
+      <div class="rule-cell">
+        <span class="hud">Rule 01</span>
+        <p>One day, one page. No skipping ahead — the momentum builds in sequence.</p>
+      </div>
+      <div class="rule-cell">
+        <span class="hud">Rule 02</span>
+        <p>Navigate the 4-zone mini-map. Clear a quarter at a time, no ruler needed.</p>
+      </div>
+      <div class="rule-cell">
+        <span class="hud">Rule 03</span>
+        <p>Fine-liners or gel pens for detail. Keep a bolder marker on hand for structure.</p>
+      </div>
+      <div class="rule-cell">
+        <span class="hud">Rule 04</span>
+        <p>Print in Normal or High-Contrast. Draft mode loses the fine lines you need.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="meta-quest-box">
-            <div class="meta-title">[ THE META-QUEST INTERFACE ]</div>
-            <p class="meta-text">
-                This challenge is the first of four installments in the Boss Series (Procrastination, Overwhelm, Burnout, Frustration). Every book you finish yields one secret Master Word. Collect all four keys, enter them at yanicreates.art/quest, and unlock your Master Certificate along with exclusive physical reward drops.
-            </p>
-        </div>
-    </section>
+<!-- ============ WHY THIS WORKS ============ -->
+<section class="science-section">
+  <div class="container science-grid">
+    <div>
+      <span class="eyebrow">Why this actually works</span>
+      <h2>Your attention isn't broken. It's reacting to chaos.</h2>
+      <p style="color:var(--c-cream-dim); margin-top:1rem;">This challenge leans on two specific mechanisms to reset your state — explained simply, not as a clinical claim.</p>
+    </div>
+    <div>
+      <div class="science-card">
+        <span class="hud">Mechanism 01 — Completion loop</span>
+        <p><strong style="color:var(--c-cream)">Dopamine via intentional completion.</strong> Overwhelmed brains run short on dopamine, which drives the urge to keep switching tasks. A short, low-friction physical task that you actually finish triggers a completion loop — and rebuilds the confidence that you can execute.</p>
+      </div>
+      <div class="science-card">
+        <span class="hud">Mechanism 02 — The hyperfocus side door</span>
+        <p><strong style="color:var(--c-cream)">Hand-eye tracking quiets mental noise.</strong> Tracing intricate lines keeps your hands and eyes continuously engaged, which pulls your brain into its active-attention mode while the internal chatter goes quiet — without forcing willpower.</p>
+      </div>
+      <p class="science-foot">// Simplified for clarity. Not a medical or diagnostic claim.</p>
+    </div>
+  </div>
+</section>
 
-    <!-- Action / Upsell / Funnel Optimization -->
-    <section id="secure" class="container conversion-zone">
-        <h2>Secure Your Next Milestone</h2>
-        <p class="conversion-sub">
-            Claim 30% off your next standalone challenge in the Boss Series, or apply a custom 15% discount toward the complete 'All Bosses Defeated' collection right now.
-        </p>
-        <div style="margin-bottom: 40px;">
-            <p style="font-size: 1.1rem; color: var(--text-color); margin-bottom: 16px;">
-                Enter your email at <a href="https://yanicreates.art/free-sample" target="_blank">yanicreates.art/free-sample</a> to receive your private access code instantly.
-            </p>
-            <p style="font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--text-color);">
-                No endless newsletters. No automated spam loops. Just tools.
-            </p>
-        </div>
-        <a href="https://yanicreates.art/free-sample" class="cta-button" target="_blank">GET YOUR ACCESS CODE</a>
-    </section>
+<!-- ============ MIRROR DECODER (signature interactive) ============ -->
+<section id="decoder">
+  <div class="container decoder-wrap">
+    <div>
+      <span class="eyebrow">The mechanic</span>
+      <h2>Every day hides a letter. Only a mirror reveals it.</h2>
+      <p style="color:var(--c-cream-dim); margin-top:1rem;">Each achievement page prints its message flipped. Hold the sheet up to a mirror, read it, and write down the first letter. Five letters. One secret word — and one piece of a bigger quest.</p>
+    </div>
+    <div>
+      <div class="decoder-box" id="decoderBox" role="button" tabindex="0" aria-label="Tap to decode the mirror message">
+        <span class="hud">Day 1 transmission — tap to decode</span>
+        <span class="mirror-text" id="mirrorText"><span class="first-letter">B</span>rains that take action change their default state instantly.</span>
+        <div class="decoder-tap">Tap or click to flip</div>
+      </div>
+      <div class="letter-slots">
+        <div class="letter-slot" id="slot0">B</div>
+        <div class="letter-slot">E</div>
+        <div class="letter-slot">G</div>
+        <div class="letter-slot">I</div>
+        <div class="letter-slot">N</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Note From Author -->
-    <section class="container footer-note">
-        <div class="note-wrapper">
-            <div class="note-title">A Note From Yani</div>
-            <p class="note-body">
-                I built these tools because I was exhausted by systems that asked me to become an entirely different type of person just to cross a finish line. I didn't need more high-pressure productivity lectures; I needed a quiet, structured space to show up, complete a micro-task, and build momentum without overthinking.
-            </p>
-            <p class="note-body">
-                If you have extracted your word, the sequence is ready. Head over to the terminal at yanicreates.art/quest, submit your key, and prepare for the next state shift.
-            </p>
-            <div class="note-signature">— Yani Creates</div>
+<!-- ============ ROADMAP ============ -->
+<section class="roadmap" id="roadmap">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Your 5-day roadmap</span>
+      <h2>Five levels. One unbroken run.</h2>
+    </div>
+    <div class="roadmap-track">
+      <div class="level-row">
+        <span class="level-tag">LEVEL 01</span>
+        <div><h3>Day 1 — Show Up</h3><p>Break the initial inertia. Starting is the boss fight for a scattered brain.</p></div>
+      </div>
+      <div class="level-row">
+        <span class="level-tag">LEVEL 02</span>
+        <div><h3>Day 2 — Stay In The Grid</h3><p>Maintain the streak. The second day is where most systems quietly die. Not this one.</p></div>
+      </div>
+      <div class="level-row">
+        <span class="level-tag">LEVEL 03</span>
+        <div><h3>Day 3 — Reclaim Control</h3><p>Halfway point. No deadline, no boss watching — you keep going anyway.</p></div>
+      </div>
+      <div class="level-row">
+        <span class="level-tag">LEVEL 04</span>
+        <div><h3>Day 4 — High Consistency</h3><p>One step left. This is historically where unfinished projects pile up.</p></div>
+      </div>
+      <div class="level-row level-final">
+        <span class="level-tag" style="color:var(--c-gold)">LEVEL 05</span>
+        <div><h3>Day 5 — Locked In</h3><p>The final payout and the word reveal. Your focus is officially verified.</p></div>
+      </div>
+    </div>
+    <p class="quest-note">This challenge is the first of four in the Boss Series. Every book yields one secret word. Collect all four, enter them at <strong>yanicreates.art/quest</strong>, and unlock your Master Certificate plus exclusive bonus drops.</p>
+  </div>
+</section>
+
+<!-- ============ WHAT'S INSIDE ============ -->
+<section id="inside">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">What's inside</span>
+      <h2>20 pages. No filler.</h2>
+    </div>
+    <div class="gallery-grid">
+      <div>
+        <!-- MOCKUP SLOT 2 — replace with cover/welcome page mockup -->
+        <div class="mockup-slot tile-mockup"><span class="ms-label">Mockup</span><span class="ms-sub">Cover + welcome pages</span></div>
+        <p class="gallery-caption">Pages 1–5</p>
+      </div>
+      <div>
+        <!-- MOCKUP SLOT 3 — replace with a circuit/tracing day page -->
+        <div class="mockup-slot tile-mockup"><span class="ms-label">Mockup</span><span class="ms-sub">A daily circuit page</span></div>
+        <p class="gallery-caption">Day pages</p>
+      </div>
+      <div>
+        <!-- MOCKUP SLOT 4 — replace with achievement + mirror decoder page -->
+        <div class="mockup-slot tile-mockup"><span class="ms-label">Mockup</span><span class="ms-sub">Badge + mirror decoder</span></div>
+        <p class="gallery-caption">Achievement pages</p>
+      </div>
+      <div>
+        <!-- MOCKUP SLOT 5 — replace with final MODE: LOCKED certificate page -->
+        <div class="mockup-slot tile-mockup"><span class="ms-label">Mockup</span><span class="ms-sub">"MODE: LOCKED" certificate</span></div>
+        <p class="gallery-caption">Final reward</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FREE SAMPLE ============ -->
+<section class="sample-section" id="sample">
+  <div class="container sample-grid">
+    <div>
+      <span class="eyebrow">No risk</span>
+      <h2>Try Day 1 before you buy the run.</h2>
+      <p style="color:var(--c-cream-dim); margin-top:0.9rem;">Drop your email and get the Day 1 page free — same circuit, same badge, same decoder. See if the format actually works for your brain before you commit to the full five.</p>
+      <form class="sample-form" onsubmit="return false;">
+        <input type="email" placeholder="Your email" required>
+        <button type="submit" class="btn btn-primary">Send Me Day 1</button>
+      </form>
+      <p class="sample-note">No spam loops. One email with the file, occasional drops when a new Boss Series book ships.</p>
+    </div>
+    <div>
+      <!-- MOCKUP SLOT 6 — replace with a preview image of the free sample page -->
+      <div class="mockup-slot wide-mockup"><span class="ms-label">Sample preview</span><span class="ms-sub">Show the actual Day 1 page here — this is the easiest trust-builder on the page.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERIES TEASER ============ -->
+<section id="series">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Boss series</span>
+      <h2>Procrastination is just the first boss.</h2>
+      <p>Four mental states. Four challenges. One word hidden in each.</p>
+    </div>
+    <div class="series-grid">
+      <div class="series-card active">
+        <span class="hud">Book 01 — Unlocked</span>
+        <h3>Lock In Mode</h3>
+        <p>Procrastination</p>
+      </div>
+      <div class="series-card">
+        <span class="lock-icon">🔒</span>
+        <span class="hud">Book 02</span>
+        <h3>Brain Has 47 Tabs Open</h3>
+        <p>Overwhelm</p>
+      </div>
+      <div class="series-card">
+        <span class="lock-icon">🔒</span>
+        <span class="hud">Book 03</span>
+        <h3>Running On Fumes</h3>
+        <p>Burnout</p>
+      </div>
+      <div class="series-card">
+        <span class="lock-icon">🔒</span>
+        <span class="hud">Book 04</span>
+        <h3>Rage Quit Energy</h3>
+        <p>Frustration</p>
+      </div>
+    </div>
+    <div class="bundle-banner">
+      <p>Collect all four secret words and unlock the <strong>Master Certificate</strong> — exclusive to the <strong>All Bosses Defeated</strong> bundle.</p>
+      <a href="#" class="btn btn-ghost">See the Bundle</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section id="pricing">
+  <div class="container">
+    <div class="pricing-card">
+      <div>
+        <span class="eyebrow">Get the challenge</span>
+        <h2 style="margin-top:0.7rem;">Lock In Mode</h2>
+        <ul class="includes-list">
+          <li>20-page printable PDF, instant download</li>
+          <li>5 unique hand-drawn circuit pages</li>
+          <li>5 daily achievement badges + mirror decoder pages</li>
+          <li>State-scan trackers for every day, before and after</li>
+          <li>1 of 4 secret words toward the global quest</li>
+          <li>Final "MODE: LOCKED" collectible certificate</li>
+        </ul>
+        <div class="btn-row">
+          <a href="#" class="btn btn-primary">Buy on Etsy — $9.99</a>
+          <a href="#" class="btn btn-ghost">Buy on Amazon</a>
         </div>
-    </section>
+      </div>
+      <div>
+        <div class="price-tag">$9.99 <span>/ one-time</span></div>
+        <p style="color:var(--c-cream-dim); font-size:0.88rem; margin-top:1rem;">Print at home on any printer. No subscription, no app, no account needed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS (placeholders) ============ -->
+<section id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">From scattered minds who finished</span>
+      <h2>What Day 5 feels like</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <span class="hud">Add real review #1</span>
+        <p>"[Replace with an actual Etsy review quote once you have a few — keep it short and specific to a real result, e.g. finishing all 5 days or the mirror reveal moment.]"</p>
+      </div>
+      <div class="review-card">
+        <span class="hud">Add real review #2</span>
+        <p>"[Replace with an actual Etsy review quote. Reviews that mention the ADHD/scattered-brain angle specifically tend to convert best for this audience.]"</p>
+      </div>
+      <div class="review-card">
+        <span class="hud">Add real review #3</span>
+        <p>"[Replace with an actual Etsy review quote, ideally one that mentions the secret word or the quest.]"</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>Before you start</h2>
+    </div>
+
+    <div class="faq-item">
+      <details>
+        <summary><span>Is this a physical book or a digital file?</span></summary>
+        <div class="faq-content"><p>It's a 20-page printable PDF you download instantly after purchase and print at home — no subscription, no app required.</p></div>
+      </details>
+    </div>
+    <div class="faq-item">
+      <details>
+        <summary><span>What if I miss a day or fall out of order?</span></summary>
+        <div class="faq-content"><p>The order is locked on purpose — it's part of how the momentum builds. If you miss a day, just pick it back up; there's no penalty, only your own data on the state-scan pages.</p></div>
+      </details>
+    </div>
+    <div class="faq-item">
+      <details>
+        <summary><span>I don't have a mirror handy. Can I still decode the message?</span></summary>
+        <div class="faq-content"><p>Any reflective phone screen or a mirror app works fine. The text is mirrored horizontally on purpose so a quick flip reveals it.</p></div>
+      </details>
+    </div>
+    <div class="faq-item">
+      <details>
+        <summary><span>What printer settings should I use?</span></summary>
+        <div class="faq-content"><p>Print in Normal or High-Contrast mode on standard A4 or Letter paper. Draft mode will lose the fine detail in the circuits.</p></div>
+      </details>
+    </div>
+    <div class="faq-item">
+      <details>
+        <summary><span>Do I need special pens?</span></summary>
+        <div class="faq-content"><p>Fine-liners or gel pens work best for the dense detail. Keep a slightly bolder marker on hand for the structural lines.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NOTE FROM YANI ============ -->
+<section id="note">
+  <div class="container note-section">
+    <span class="eyebrow">A note from Yani</span>
+    <h2 style="margin-top:0.8rem;">I built this because I was tired of systems that asked me to become someone else just to finish something.</h2>
+    <p style="margin-top:1.4rem;">I didn't need another high-pressure productivity lecture. I needed a quiet, structured space to show up, complete a small task, and build momentum without overthinking it.</p>
+    <p>If you've made it to Day 5, you're holding actual proof that this works. Head to the terminal at <strong>yanicreates.art/quest</strong> when you're ready.</p>
+    <p class="signature">— Yani</p>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="wordmark">YANI CREATES<span>™</span></div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <a href="#">Etsy</a>
+          <a href="#">Amazon</a>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="#">Boss Series</a>
+          <a href="#">Bundle</a>
+          <a href="#">Quest</a>
+        </div>
+        <div class="footer-col">
+          <h4>Info</h4>
+          <a href="#">Print Guide</a>
+          <a href="#">Contact</a>
+          <a href="#">Privacy</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Yani Creates™. All rights reserved.</span>
+      <span>yanicreates.art</span>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a href="#pricing" class="btn btn-primary">Get the Challenge — $9.99</a>
+</div>
+
+<script>
+  const box = document.getElementById('decoderBox');
+  const slot0 = document.getElementById('slot0');
+  function toggleDecode(){
+    box.classList.toggle('revealed');
+    slot0.classList.toggle('filled');
+  }
+  box.addEventListener('click', toggleDecode);
+  box.addEventListener('keypress', (e) => { if(e.key === 'Enter' || e.key === ' ') toggleDecode(); });
+</script>
 
 </body>
 </html>
